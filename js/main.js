@@ -412,15 +412,9 @@ function getNodeChunks(htmlDocument, oldDOM) {
 	let chunks = [];
 	let currentChunk = [];
 
-    // re init the scroll effect.. 
-    if(document.getElementById("scrollToElement")){
-        document.getElementById("scrollToElement").removeAttribute("id");
-    }
-
-	for (let i = 0; i < offscreenDiv.children.length; i++) {
-
         // check where to scroll 
-        if(oldDOM.length > 0){
+		for (let i = 0; i < offscreenDiv.children.length; i++) {
+		if(oldDOM.length > 0){
             if(oldDOM[i]){
                 if(offscreenDiv.children[i].innerHTML != oldDOM[i].innerHTML){
                     offscreenDiv.children[i].id = "scrollToElement";
@@ -428,6 +422,12 @@ function getNodeChunks(htmlDocument, oldDOM) {
             }
         }
 
+
+	}
+
+	for (let i = 0; i < offscreenDiv.children.length; i++) {
+
+    
 		let current = offscreenDiv.children[i];
 		let currentRect = current.getBoundingClientRect();
 		currentChunk.push(current);
@@ -472,7 +472,7 @@ function appendChunksToPages(chunks, rootContainer, chapterTitle) {
 
     let scrollToElement = document.getElementById('scrollToElement');
     if(scrollToElement){
-        scrollToElement.scrollIntoView();
+        scrollToElement.parentElement.parentElement.scrollIntoView({behavior:"smooth"});
     }else{
         container.scrollIntoView({block: "end"});
     }

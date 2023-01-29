@@ -91,17 +91,24 @@ a {
     border-color: #afafaf;
 }
 
+
 /* text editor */
+
 .editor-section .container {
     padding: 20px 43px;
     overflow: hidden;
 }
+
 .editor-section .container .title h1 {
     font-size: 19px;
     margin-bottom: 0px;
+    border: 0;
+    outline: none;
 }
 
+
 /* chapter fab button end, publish button */
+
 .btn-publish {
     position: absolute;
     right: 22px;
@@ -109,9 +116,10 @@ a {
     z-index: 10;
     border-radius: 36px;
     background: white;
-    box-shadow: 1px 2px 8px 0 rgba(0, 0, 0, 0.09);   
+    box-shadow: 1px 2px 8px 0 rgba(0, 0, 0, 0.09);
     text-align: center;
 }
+
 .btn-publish span {
     display: block;
     padding: 12px 25px;
@@ -125,6 +133,7 @@ a {
     color: black;
     margin: auto;
 }
+
 .btn-publish:hover span {
     color: #333;
 }
@@ -133,7 +142,9 @@ a {
     font-size: 1em !important;
 }
 
+
 /* text viewer section end, book cover */
+
 .book-cover {
     padding: 0 31px 0 9px;
 }
@@ -149,8 +160,6 @@ a {
     line-height: 1.45;
     letter-spacing: 0.12px;
 }
-
-
 
 .book-combobox {
     background-color: #464646;
@@ -173,6 +182,7 @@ a {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
 .book-combobox .title {
     color: white;
     margin-left: 11px;
@@ -182,9 +192,11 @@ a {
     letter-spacing: 0.16px;
     line-height: normal;
 }
-.book-combobox .title p{
+
+.book-combobox .title p {
     margin-bottom: 0;
 }
+
 .book-combobox .title p.sub-title {
     margin-top: 3px;
     font-size: 13px;
@@ -198,6 +210,7 @@ a {
     font-size: 14px;
     margin-right: 13px;
 }
+
 .book-combobox .handler a {
     color: #fff;
 }
@@ -236,11 +249,13 @@ a {
     height: 1px;
     margin: 12px 0;
 }
+
 .progressbar-back .progressbar-val {
     background-color: #b6b6b6;
     height: 1px;
     width: 0;
 }
+
 .chapter-title.active .progressbar-back .progressbar-val {
     background-color: #82ffb4;
     height: 1px;
@@ -257,6 +272,7 @@ a {
     bottom: 0px;
     left: 0px;
 }
+
 .chapter-fabbar:hover>* {
     color: #82ffb4;
     cursor: pointer;
@@ -276,6 +292,7 @@ a {
     margin-left: 7px;
     margin-top: 1px;
 }
+
 .chapter-fabbar i {
     color: #82ffb4;
     vertical-align: middle;
@@ -295,7 +312,7 @@ a {
 
 .editor-section .title hr {
     color: #d8d8d8;
-    height: 1px; 
+    height: 1px;
     margin-top: 9px;
     margin-bottom: 13px;
 }
@@ -312,7 +329,7 @@ a {
     padding-right: 20px;
 }
 
-.editor-section .container .editor > *,
+.editor-section .container .editor>*,
 .accordion-body .ql-editor {
     color: #ffffff;
     font-family: 'Andale Mono Regular';
@@ -324,7 +341,7 @@ a {
     letter-spacing: 0.18px;
 }
 
-.editor-section .container .editor h1{
+.editor-section .container .editor h1 {
     font-size: 22px;
     line-height: 1.05;
     letter-spacing: 2.1px;
@@ -506,7 +523,8 @@ a {
     display: inline-block;
 }
 
-.input_field, .input_field input.content{
+.input_field,
+.input_field input.content {
     text-shadow: 1px 1px 1px rgba(23, 23, 23, 0.5);
     font-family: Arial;
     font-size: 14px;
@@ -517,10 +535,12 @@ a {
     letter-spacing: 0.47px;
     color: #bababa;
 }
+
 .input_field {
     display: grid;
     grid-template-columns: auto 45px;
 }
+
 .input_field input.content {
     background-color: transparent;
     outline: none;
@@ -551,55 +571,50 @@ input.content:focus+span {
     border: none;
 }
 
+
 /* 
     2560 1920 1600 1280 1024 800x
     Start Responsive
 */
 
+
 /*######################################1800*/
+
 @media screen and (max-width: 1800px) {
     .chapter-title h6 span {
         color: #82ffb4;
         font-size: 14px;
     }
-
     .chapter-title h6 {
         color: #bababa;
         font-size: 14px;
         padding-bottom: 0px;
     }
-
     .chapter-title hr {
         border-color: #afafaf;
     }
-
     .editor-section .container .ql-container {
         margin-top: 20px;
     }
-
     .ql-snow.ql-toolbar button,
     .ql-snow .ql-toolbar button {
         height: 24px;
         margin-right: 6px;
     }
-
     /* text viewer section end, book cover */
     .book-cover {
         padding: 0 31px 0 9px;
     }
-
     .book-shader {
         width: 17px;
         height: 100%;
         margin: 0 9px 0 0;
     }
-
     .book-cover h6 {
         font-size: 20px;
         line-height: 1.45;
         letter-spacing: 0.12px;
     }
-
     /* book cover end*/
 }
 
@@ -617,7 +632,7 @@ input.content:focus+span {
         width: 32px;
         height: 41px;
     }
-    .book-combobox .title{
+    .book-combobox .title {
         margin-left: 9px;
     }
     .book-combobox .title p {
@@ -632,7 +647,7 @@ input.content:focus+span {
     .chapter-list {
         padding: 24px 36px 24px 16px;
     }
-    .input_field input.content{
+    .input_field input.content {
         font-size: 12px;
     }
     .chapter-title {
@@ -641,18 +656,15 @@ input.content:focus+span {
     .progressbar-back {
         margin: 9px 0 11px;
     }
-
     .chapter-title h6 {
         color: #bababa;
         font-size: 14px;
         padding-bottom: 0px;
     }
-
     .chapter-title hr {
         border-color: #afafaf;
     }
-
-    .chapter-fabbar{
+    .chapter-fabbar {
         padding-top: 30px;
     }
     .chapter-fabbar i {
@@ -661,8 +673,6 @@ input.content:focus+span {
     .chapter-fabbar span {
         font-size: 12px;
     }
-
-
     /* text editor */
     .editor-section {
         max-width: 493px;
@@ -670,54 +680,45 @@ input.content:focus+span {
     .editor-section .container {
         padding: 22px 31px;
     }
-
-    .editor-section .container .editor > *, 
-    .accordion-body .ql-editor{
+    .editor-section .container .editor>*,
+    .accordion-body .ql-editor {
         font-size: 13px;
         line-height: 1.54;
         letter-spacing: 0.14px;
     }
-
-    .editor-section .container .editor h1{
+    .editor-section .container .editor h1 {
         font-size: 16px;
         line-height: 1.33;
         letter-spacing: 1.66px;
     }
-
     .editor-section .container .ql-container {
         margin-top: 0px;
     }
-
     .ql-snow.ql-toolbar button,
     .ql-snow .ql-toolbar button {
         height: 24px;
         margin-right: 6px;
     }
-
     /* publish button */
     .btn-publish span {
-        font-size: 12px; 
+        font-size: 12px;
         padding: 9px 21px;
         letter-spacing: 0.4px;
     }
-
     /* text viewer section end, book cover */
     .book-cover {
         padding: 0px;
     }
-
     .book-shader {
         width: 20px;
         height: 100%;
         margin: 0 10px 0 16px;
     }
-
     .book-cover h6 {
         font-size: 16px;
         line-height: 1.45;
         letter-spacing: 0.12px;
     }
-
     /* book cover end*/
 }
 
@@ -725,56 +726,47 @@ input.content:focus+span {
 /*######################################1120*/
 
 @media screen and(max-width: 1120px) {
-
     .chapter-title h6 span {
         color: #82ffb4;
         font-size: 14px;
     }
-
     .chapter-title h6 {
         color: #bababa;
         font-size: 14px;
     }
-
     .chapter-title hr {
         border-color: #afafaf;
     }
-
     /* text editor */
     .editor-section {
         max-width: 442px;
     }
-
     .editor-section .container .ql-container {
         margin-top: 0px;
     }
-
     .book-cover {
         padding: 0px;
     }
-
     .book-shader {
         width: 20px;
         height: 100%;
         margin: 0 10px 0 10px;
     }
-
     .book-cover h6 {
         font-size: 14px;
         line-height: 1.45;
         letter-spacing: 0.12px;
     }
-
     /* book cover end*/
 }
 
-@media screen and (max-width: 1050px){
-    .text-viewer-section .containerView .chapter .chapter-page{
+@media screen and (max-width: 1050px) {
+    .text-viewer-section .containerView .chapter .chapter-page {
         width: 30.5vw;
     }
 }
 
-@media screen and (max-width: 1020px){
+@media screen and (max-width: 1020px) {
     .text-viewer-section {
         display: none;
     }
@@ -782,6 +774,7 @@ input.content:focus+span {
         max-width: none;
     }
 }
+
 
 /*######################################992*/
 
@@ -791,23 +784,23 @@ input.content:focus+span {
     }
 }
 
+
 /*######################################640*/
 
 @media screen and (max-width: 500px) {
-
     .book-combobox {
         background-color: #3b3b3b;
         padding: 7px;
-    }  
+    }
     .book-combobox .rectangle {
         width: 30px;
         height: 38px;
-    }  
-    .book-combobox .title p{
+    }
+    .book-combobox .title p {
         font-weight: normal;
         font-size: 14px;
     }
-    .book-combobox .title p.sub-title{
+    .book-combobox .title p.sub-title {
         font-size: 13px;
         margin-top: 2px;
     }
@@ -883,8 +876,8 @@ input.content:focus+span {
         margin: 0 auto;
         width: calc(100% - 20px);
     }
-    .editor-section .container .editor > *, 
-    .accordion-body .ql-editor{
+    .editor-section .container .editor>*,
+    .accordion-body .ql-editor {
         font-size: 15px;
         line-height: 1.33;
         letter-spacing: 0.16px;
@@ -895,32 +888,31 @@ input.content:focus+span {
 }
 
 @media screen and (min-width: 2200px) {
-    .ql-editor{
-    font-family: AndaleMono;
-    font-size: 19px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.32;
-    letter-spacing: 0.2px;
-    color: #fff;
+    .ql-editor {
+        font-family: AndaleMono;
+        font-size: 19px;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.32;
+        letter-spacing: 0.2px;
+        color: #fff;
     }
-
     .content-section {
         max-width: 407px;
     }
     .book-combobox {
         padding: 14px;
-    } 
-    .book-combobox .title p{
+    }
+    .book-combobox .title p {
         font-size: 17px;
         letter-spacing: 0.18px;
     }
-    .book-combobox .title p.sub-title{
+    .book-combobox .title p.sub-title {
         font-size: 14px;
         letter-spacing: 0.15px;
     }
-    .book-combobox .handler{
+    .book-combobox .handler {
         margin-right: 17px;
     }
     .chapter-list {
@@ -929,7 +921,8 @@ input.content:focus+span {
     .input_field {
         grid-template-columns: auto 51px;
     }
-    .input_field input.content, .input_field {
+    .input_field input.content,
+    .input_field {
         font-size: 18px;
         letter-spacing: 0.6px;
     }
@@ -942,7 +935,7 @@ input.content:focus+span {
     .chapter-fabbar i {
         font-size: 23px;
     }
-    .chapter-fabbar span{
+    .chapter-fabbar span {
         font-size: 16px;
     }
     .editor-section {
@@ -955,9 +948,8 @@ input.content:focus+span {
         padding: 40px 55px;
     }
     .btn-publish span {
-        font-size: 16px; 
+        font-size: 16px;
         padding: 14px 30px;
         letter-spacing: 0.47px;
     }
-
 }

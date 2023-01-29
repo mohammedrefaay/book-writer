@@ -474,7 +474,7 @@ function appendChunksToPages(chunks, rootContainer, chapterTitle) {
 
     let scrollToElement = document.getElementById('scrollToElement');
     if(scrollToElement){
-        scrollToElement.parentElement.parentElement.scrollIntoView({behavior:"smooth"});
+        scrollToElement.parentElement.parentElement.scrollIntoView({behavior:"smooth" , block : "center"});
     }else{
         container.scrollIntoView({block: "end"});
     }

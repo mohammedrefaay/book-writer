@@ -42,40 +42,38 @@
                     <div class="chapter-title" id="chapter-title-1" data-chapter-num="1">
                         <div class="input_field">
                             <div class="title d-flex flex-row-reverse">
-                              <input class="content w-100" value="First Chapter" placeholder="Add chapter title" disabled/>
-                              <span class="chapterNumber">1.</span>
+                                <input class="content w-100" value="First Chapter" placeholder="Add chapter title" disabled/>
+                                <span class="chapterNumber">1.</span>
                             </div>
                             <div class="icons">
-                              <i class="fa-solid fa-pen"></i>
-                              <i class="fa-solid fa-trash"></i>
+                                <i class="fa-solid fa-pen"></i>
+                                <i class="fa-solid fa-trash"></i>
                             </div>
                         </div>
                         <div class="progressbar-back w-100">
                             <div class="progressbar-val"></div>
                         </div>
-                    </div>                
+                    </div>
                     <!-- JS -> add new chapter -->
                 </div>
 
                 <div class="accordion" id="accordionContainer">
 
                     <div class="accordion-item rounded-0" id="chapter-accordion-1">
-                        <h2 class="accordion-header align-items-center d-flex flex-row-reverse" id="heading-1" >
-                            <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse"
-                                data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1" value="First Chapter" placeholder="Add chapter title" disabled />
+                        <h2 class="accordion-header align-items-center d-flex flex-row-reverse" id="heading-1">
+                            <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse" data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1" value="First Chapter" placeholder="Add chapter title" disabled />
                             <span class="chapterNumber">1.</span>
                         </h2>
                         <div class="progressbar-back">
                             <div class="progressbar-val"></div>
-                        </div>    
-                        <div id="collapse-1" class="accordion-collapse px-2 rounded-0 collapse show" aria-labelledby="heading-1"
-                          data-bs-parent="#accordionContainer">
-                          <div class="accordion-body col-primary-dark">
-                            <div class="editor px-2"> </div>
-                          </div>
+                        </div>
+                        <div id="collapse-1" class="accordion-collapse px-2 rounded-0 collapse show" aria-labelledby="heading-1" data-bs-parent="#accordionContainer">
+                            <div class="accordion-body col-primary-dark">
+                                <div class="editor px-2"> </div>
+                            </div>
                         </div>
                     </div>
-                    
+
                     <!-- JS -> add new Mobile chapter -->
                 </div>
 
@@ -89,7 +87,7 @@
                 <div class="h-100 col-primary-dark editor-section">
                     <div class="container h-100" id="chapter-editor-1">
                         <div class="title">
-                            <h1>First Chapter</h1>
+                            <h1 id="chapterTitle" contenteditable="true" onclick="getChapterTitle(this)">First Chapter</h1>
                             <hr class="solid">
                         </div>
                         <div class="editor"> </div>
@@ -141,7 +139,7 @@
 
         </div>
     </div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Main Quill library -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="js/main.js"></script>

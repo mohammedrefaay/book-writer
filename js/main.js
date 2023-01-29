@@ -6,12 +6,16 @@ document.addEventListener("DOMContentLoaded", function () {
 		addBtn = document.querySelector(".add"),
 		chapterContainerElement = document.querySelector(".chapters"),
 		mobileView = window.innerWidth > 500 ? false : true,
-		lettersCount = [[1, 0]];
+		lettersCount = [
+			[1, 0]
+		];
 
 	let toolbarOptions = [
-		[
-			{
+		[{
 				header: 1,
+			},
+			{
+				header: 2,
 			},
 			"bold",
 			"italic",
@@ -27,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			{
 				align: [],
 			},
+			"clean"
+
 		],
 	];
 
@@ -39,10 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 		chapterAccordion1.on("text-change", function () {
 			let textLen = chapterAccordion1.getLength();
-			for(let i = 0; lettersCount.length > i; i++){
-				if(lettersCount[i][0] == 1){
+			for (let i = 0; lettersCount.length > i; i++) {
+				if (lettersCount[i][0] == 1) {
 					lettersCount[i][1] = textLen;
-					break; 
+					break;
 				}
 			}
 			calcChapters(lettersCount, true);
@@ -53,8 +59,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			modules: {
 				toolbar: toolbarOptions,
 			},
+			placeholder:"It was a bright cold day in April, and the clocks were striking thirteen",
 			theme: "snow",
 		});
+		
 
 		chapterEditor1.on("text-change", function () {
 			let textLen = chapterEditor1.getLength(),
@@ -65,17 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
 					"#chapter-preview-1 .chapterPreviewContainer"
 				),
 				chapterTitle = document.querySelector("#chapter-title-1 input").value,
-                oldDOM = [];
-                
-            previewContainer.querySelectorAll(".preview").forEach(e => {
-                let childrenLen = e.children.length, 
-                    i = 0; 
-                if(childrenLen > 0){
-                    for(i; childrenLen > i; i++){
-                        oldDOM.push(e.children[i]); 
-                    }
-                }
-            });
+				oldDOM = [];
+
+			previewContainer.querySelectorAll(".preview").forEach(e => {
+				let childrenLen = e.children.length,
+					i = 0;
+				if (childrenLen > 0) {
+					for (i; childrenLen > i; i++) {
+						oldDOM.push(e.children[i]);
+					}
+				}
+			});
 
 			previewContainer.innerHTML = "";
 
@@ -89,10 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				e.innerHTML = i + 1;
 			});
 
-			for(let i = 0; lettersCount.length > i; i++){
-				if(lettersCount[i][0] == 1){
+			for (let i = 0; lettersCount.length > i; i++) {
+				if (lettersCount[i][0] == 1) {
 					lettersCount[i][1] = textLen;
-					break; 
+					break;
 				}
 			}
 			calcChapters(lettersCount);
@@ -115,11 +123,16 @@ document.addEventListener("DOMContentLoaded", function () {
 				"beforeend",
 				`  
       <div class="accordion-item rounded-0" id="chapter-accordion-${chapterID}">
+	  <div class="box d-flex align-items-center w-100">
           <h2 class="accordion-header align-items-center d-flex flex-row-reverse" id="heading-${chapterID}" >
               <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse"
                   data-bs-target="#collapse-${chapterID}" aria-expanded="true" aria-controls="collapse-${chapterID}"  placeholder="Add chapter title" />
               <span class="chapterNumber">${chapterTitleCount+1}.</span>
           </h2>
+		  <div class="handl text-center accordion-header">
+                                <i class="fa fa-angle-down"></i>
+                            </div>
+		  </div>
           <div class="progressbar-back">
               <div class="progressbar-val"></div>
           </div>    
@@ -132,12 +145,13 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
       `
 			);
+			
 
 			let currentChapterTitle = document.getElementById(
 					"chapter-accordion-" + chapterID
 				),
 				currentChapterTitleInput =
-					currentChapterTitle.getElementsByTagName("input")[0];
+				currentChapterTitle.getElementsByTagName("input")[0];
 			currentChapterTitleInput.focus();
 			currentChapterTitleInput.click();
 			currentChapterTitleInput.addEventListener("keyup", (event) => {
@@ -149,8 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			lettersCount[lettersCount.length] = [chapterID, 0];
 
 			window["chapterEditor" + chapterID] = new Quill(
-				"#chapter-accordion-" + chapterID + " .editor",
-				{
+				"#chapter-accordion-" + chapterID + " .editor", {
 					modules: {
 						toolbar: toolbarOptions,
 					},
@@ -159,12 +172,12 @@ document.addEventListener("DOMContentLoaded", function () {
 			);
 			window["chapterEditor" + chapterID].on(
 				"text-change",
-				function (delta, oldDelta, source) {  
-					let textLen = window["chapterEditor" + chapterID].getLength();              
-					for(let i = 0; lettersCount.length > i; i++){
-						if(lettersCount[i][0] == chapterID){
+				function (delta, oldDelta, source) {
+					let textLen = window["chapterEditor" + chapterID].getLength();
+					for (let i = 0; lettersCount.length > i; i++) {
+						if (lettersCount[i][0] == chapterID) {
 							lettersCount[i][1] = textLen;
-							break; 
+							break;
 						}
 					}
 					calcChapters(lettersCount, true);
@@ -198,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					"chapter-title-" + chapterID
 				),
 				currentChapterTitleInput =
-					currentChapterTitle.getElementsByTagName("input")[0];
+				currentChapterTitle.getElementsByTagName("input")[0];
 			currentChapterTitleInput.focus();
 			currentChapterTitleInput.click();
 			currentChapterTitleInput.addEventListener("keyup", (event) => {
@@ -226,15 +239,16 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
       `
 			);
+			
 
 			lettersCount[lettersCount.length] = [chapterID, 0];
 
 			window["chapterEditor" + chapterID] = new Quill(
-				"#chapter-editor-" + chapterID + " .editor",
-				{
+				"#chapter-editor-" + chapterID + " .editor", {
 					modules: {
 						toolbar: toolbarOptions,
 					},
+					placeholder:"It was a bright cold day in April, and the clocks were striking thirteen",
 					theme: "snow",
 				}
 			);
@@ -247,23 +261,23 @@ document.addEventListener("DOMContentLoaded", function () {
 						).innerHTML,
 						previewContainer = document.querySelector(
 							"#chapter-preview-" +
-								chapterID +
-								" .chapterPreviewContainer"
+							chapterID +
+							" .chapterPreviewContainer"
 						),
 						chapterTitle = document.querySelector(
 							"#chapter-title-" + chapterID + " input"
 						).value,
-                        oldDOM = [];
-                
-                    previewContainer.querySelectorAll(".preview").forEach(e => {
-                        let childrenLen = e.children.length, 
-                            i = 0; 
-                        if(childrenLen > 0){
-                            for(i; childrenLen > i; i++){
-                                oldDOM.push(e.children[i]); 
-                            }
-                        }
-                    });
+						oldDOM = [];
+
+					previewContainer.querySelectorAll(".preview").forEach(e => {
+						let childrenLen = e.children.length,
+							i = 0;
+						if (childrenLen > 0) {
+							for (i; childrenLen > i; i++) {
+								oldDOM.push(e.children[i]);
+							}
+						}
+					});
 
 					previewContainer.innerHTML = "";
 					appendChunksToPages(
@@ -275,10 +289,10 @@ document.addEventListener("DOMContentLoaded", function () {
 						e.innerHTML = i + 1;
 					});
 
-					for(let i = 0; lettersCount.length > i; i++){
-						if(lettersCount[i][0] == chapterID){
+					for (let i = 0; lettersCount.length > i; i++) {
+						if (lettersCount[i][0] == chapterID) {
 							lettersCount[i][1] = textLen;
-							break; 
+							break;
 						}
 					}
 					calcChapters(lettersCount);
@@ -299,12 +313,12 @@ document.addEventListener("DOMContentLoaded", function () {
 			);
 		}
 	});
-
+	
 	// sidebar interactions
 	chapterList.addEventListener("click", function (e) {
 		// delete btn
 		if (e.target.matches(".fa-trash")) {
-			if(!confirm("Are you sure you want to delete this chapter?")) {
+			if (!confirm("Are you sure you want to delete this chapter?")) {
 				return;
 			}
 			let currentChapterTitle = e.target.closest(".chapter-title"),
@@ -314,8 +328,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			document.getElementById("chapter-preview-" + chapterNum).remove();
 
 			let chapterEditor = document.querySelectorAll(
-					".editor-section .container"
-				);
+				".editor-section .container"
+			);
 			document.querySelectorAll(".chapter-title").forEach((e, i) => {
 				let theNum = i + 1;
 				e.querySelector(".chapterNumber").innerText = theNum + ".";
@@ -329,10 +343,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				}
 			});
 
-			for(let i = 0; lettersCount.length > i; i++){
-				if(lettersCount[i][0] == chapterNum){
+			for (let i = 0; lettersCount.length > i; i++) {
+				if (lettersCount[i][0] == chapterNum) {
 					lettersCount.splice(i, 1);
-					break; 
+					break;
 				}
 			}
 			calcChapters(lettersCount);
@@ -352,8 +366,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (e.target.matches(".chapter-title input")) {
 			let $this = e.target,
 				chapterNum = $this
-					.closest(".chapter-title")
-					.getAttribute("data-chapter-num");
+				.closest(".chapter-title")
+				.getAttribute("data-chapter-num");
 			$this.addEventListener("keyup", function () {
 				document.querySelector(
 					"#chapter-editor-" + chapterNum + " h1"
@@ -412,21 +426,21 @@ function getNodeChunks(htmlDocument, oldDOM) {
 	let chunks = [];
 	let currentChunk = [];
 
-    // re init the scroll effect.. 
-    if(document.getElementById("scrollToElement")){
-        document.getElementById("scrollToElement").removeAttribute("id");
-    }
+	// re init the scroll effect.. 
+	if (document.getElementById("scrollToElement")) {
+		document.getElementById("scrollToElement").removeAttribute("id");
+	}
 
 	for (let i = 0; i < offscreenDiv.children.length; i++) {
 
-        // check where to scroll 
-        if(oldDOM.length > 0){
-            if(oldDOM[i]){
-                if(offscreenDiv.children[i].innerHTML != oldDOM[i].innerHTML){
-                    offscreenDiv.children[i].id = "scrollToElement";
-                }
-            }
-        }
+		// check where to scroll 
+		if (oldDOM.length > 0) {
+			if (oldDOM[i]) {
+				if (offscreenDiv.children[i].innerHTML != oldDOM[i].innerHTML) {
+					offscreenDiv.children[i].id = "scrollToElement";
+				}
+			}
+		}
 
 		let current = offscreenDiv.children[i];
 		let currentRect = current.getBoundingClientRect();
@@ -470,29 +484,31 @@ function appendChunksToPages(chunks, rootContainer, chapterTitle) {
 		i++;
 	});
 
-    let scrollToElement = document.getElementById('scrollToElement');
-    if(scrollToElement){
-        scrollToElement.scrollIntoView();
-    }else{
-        container.scrollIntoView({block: "end"});
-    }
+	let scrollToElement = document.getElementById('scrollToElement');
+	if (scrollToElement) {
+		scrollToElement.scrollIntoView();
+	} else {
+		container.scrollIntoView({
+			block: "end"
+		});
+	}
 }
 
 function calcChapters(arr, mobile = false) {
 	let max = 0;
-	for(let i=0; arr.length > i; i++){
-		if(arr[i][1] > max){
-			max = arr[i][1]; 
+	for (let i = 0; arr.length > i; i++) {
+		if (arr[i][1] > max) {
+			max = arr[i][1];
 		}
 	}
-	if(mobile == false){
+	if (mobile == false) {
 		arr.forEach(e => {
 			let len = (e[1] / max) * 100;
 			document.querySelector(
 				"#chapter-title-" + e[0] + " .progressbar-val"
 			).style.width = len + "%";
 		});
-	}else{
+	} else {
 		arr.forEach(e => {
 			let len = (e[1] / max) * 100;
 			document.querySelector(

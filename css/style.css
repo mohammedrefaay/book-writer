@@ -74,6 +74,7 @@ a {
 
 .chapter-title {
     padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .chapter-title h6 span {
@@ -186,7 +187,7 @@ a {
     margin-bottom: 0;
 }
 .book-combobox .title p.sub-title {
-    margin-top: 3px;
+    margin-top: 10px;
     font-size: 13px;
     font-weight: normal;
     letter-spacing: 0.14px;
@@ -234,7 +235,7 @@ a {
 .progressbar-back {
     background-color: #5e5e5e;
     height: 1px;
-    margin: 12px 0;
+    /* margin: 0px 0; */
 }
 .progressbar-back .progressbar-val {
     background-color: #b6b6b6;
@@ -258,7 +259,7 @@ a {
     left: 0px;
 }
 .chapter-fabbar:hover>* {
-    color: #82ffb4;
+    /* color: #82ffb4; */
     cursor: pointer;
 }
 
@@ -314,7 +315,7 @@ a {
 
 .editor-section .container .editor > *,
 .accordion-body .ql-editor {
-    color: #ffffff;
+    color:  #A2A2A2;
     font-family: 'Andale Mono Regular';
     font-size: 17px;
     font-weight: normal;
@@ -324,7 +325,8 @@ a {
     letter-spacing: 0.18px;
 }
 
-.editor-section .container .editor h1{
+.editor-section .container .editor h1,
+.editor-section .container .editor h2{
     font-size: 22px;
     line-height: 1.05;
     letter-spacing: 2.1px;
@@ -431,11 +433,43 @@ a {
     margin: 0;
 }
 
-.text-viewer-section .containerView .chapter h1 {
-    font-size: 1.25vw;
+
+
+.oval{
+    display: none;
+    width: 30px;
+    height: 30px;
+    margin: 3px 0 5px 107px;
+    /* padding: 9px 7px 9px 8px; */
+    background-color: #262626;
+    border-radius: 50%;
+}
+
+.oval span{
+    width: 15px;
+  height: 12px;
+  font-family: Arial;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.92px;
+  color: #fff;
+}
+
+.text-viewer-section .containerView .chapter h2{
+    font-size: 1.4vw;
     font-weight: bold;
-    letter-spacing: 0.227vw;
     margin: 0;
+    line-height: 1.5em;
+}
+
+.text-viewer-section .containerView .chapter h1 {
+    font-size: 2vw;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.5em;
 }
 
 .text-viewer-section .containerView .chapter h1.chapterH1 {
@@ -517,9 +551,15 @@ a {
     letter-spacing: 0.47px;
     color: #bababa;
 }
+.input_field:active{
+    color: #82ffb4;
+}
+
 .input_field {
     display: grid;
     grid-template-columns: auto 45px;
+    height: 30px;
+    align-items: start;
 }
 .input_field input.content {
     background-color: transparent;
@@ -549,6 +589,10 @@ input.content:focus+span {
 
 .ql-container.ql-snow {
     border: none;
+}
+
+.ql-editor.ql-blank::before{
+    color: #a2a2a2;
 }
 
 /* 
@@ -749,6 +793,8 @@ input.content:focus+span {
         margin-top: 0px;
     }
 
+
+
     .book-cover {
         padding: 0px;
     }
@@ -827,7 +873,7 @@ input.content:focus+span {
     }
     .accordion {
         display: block;
-        overflow-y: auto;
+        overflow-y: scroll;
         height: calc(100vh - 122px);
     }
     .accordion .editor {
@@ -878,6 +924,7 @@ input.content:focus+span {
         bottom: 0px;
         left: 0px;
         background-color: #464646;
+        display: block;
     }
     .progressbar-back {
         margin: 0 auto;
@@ -893,6 +940,16 @@ input.content:focus+span {
         border: none;
     }
 }
+
+@media screen and (max-width: 320px){
+    .handler{
+        display: none;
+    }
+    .oval{
+        display: block;
+    }
+}
+
 
 @media screen and (min-width: 2200px) {
     .ql-editor{

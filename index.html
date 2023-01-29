@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Red+Hat+Mono:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- Theme included stylesheets -->
+    <link href="css/quill.snow.1.3.6.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="w-100 h-100">
+        <div class="h-100 t-board">
+            <div class="h-100 col-primary content-section">
+                <div class="w-100 book-combobox">
+                    <div class="align-items-center d-flex justify-content-between">
+                        <div class="align-items-center d-flex justify-content-start">
+                            <div class="rectangle">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <div class="title">
+                                <p class="">My New Book</p>
+                                <p class="sub-title">by Your Name</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="handler text-center">
+                                <a href="#"><i class="fa fa-angle-down"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chapter-list">
+                    <div class="chapter-title" id="chapter-title-1" data-chapter-num="1">
+                        <div class="input_field">
+                            <div class="title d-flex flex-row-reverse">
+                              <input class="content w-100" value="First Chapter" placeholder="Add chapter title" disabled/>
+                              <span class="chapterNumber">1.</span>
+                            </div>
+                            <div class="icons">
+                              <i class="fa-solid fa-pen"></i>
+                              <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </div>
+                        <div class="progressbar-back w-100">
+                            <div class="progressbar-val"></div>
+                        </div>
+                    </div>                
+                    <!-- JS -> add new chapter -->
+                </div>
+
+                <div class="accordion" id="accordionContainer">
+
+                    <div class="accordion-item rounded-0" id="chapter-accordion-1">
+                        <h2 class="accordion-header align-items-center d-flex flex-row-reverse" id="heading-1" >
+                            <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse"
+                                data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1" value="First Chapter" placeholder="Add chapter title" disabled />
+                            <span class="chapterNumber">1.</span>
+                        </h2>
+                        <div class="progressbar-back">
+                            <div class="progressbar-val"></div>
+                        </div>    
+                        <div id="collapse-1" class="accordion-collapse px-2 rounded-0 collapse show" aria-labelledby="heading-1"
+                          data-bs-parent="#accordionContainer">
+                          <div class="accordion-body col-primary-dark">
+                            <div class="editor px-2"> </div>
+                          </div>
+                        </div>
+                    </div>
+                    
+                    <!-- JS -> add new Mobile chapter -->
+                </div>
+
+                <div class="chapter-fabbar w-100">
+                    <i class="active fa fa-plus-circle"></i>
+                    <span class="add">Add new chapter</span>
+                </div>
+            </div>
+            <div class="d-flex editornviewer-section">
+                <!-- Text Editor -->
+                <div class="h-100 col-primary-dark editor-section">
+                    <div class="container h-100" id="chapter-editor-1">
+                        <div class="title">
+                            <h1>First Chapter</h1>
+                            <hr class="solid">
+                        </div>
+                        <div class="editor"> </div>
+                    </div>
+                    <!-- JS -> add new editor -->
+                </div>
+                <!-- Text Viewer -->
+                <div class="h-100 col-primary-light text-viewer-section">
+                    <a href="#">
+                        <div class="btn-publish">
+                            <span>Publish</span>
+                        </div>
+                    </a>
+                    <div class="containerView">
+                        <div>
+                            <div class="book-cover" id="book-cover">
+                                <div class="book-shader"></div>
+                                <h1>
+                                    My<br>New<br>Book
+                                </h1>
+                                <h6 class="name">Your Name</h6>
+                            </div>
+                        </div>
+                        <div style="position: absolute; left: -3000px;">
+                            <div class="chapter" id="js_offscreenPreview">
+                                <div class="chapter-page">
+                                    <div class="preview" style="height:100%">
+                                        <!-- JS -> editor content -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chapters">
+                            <div class="chapter" id="chapter-preview-1">
+                                <div class="align-items-center chapter-page d-flex justify-content-center">
+                                    <h1 class="chapterH1">First Chapter</h1>
+                                    <div class="chapter-pageNum text-center"></div>
+                                </div>
+                                <div class="chapterPreviewContainer">
+
+                                </div>
+                            </div>
+                            <!-- JS -> add new preview -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Main Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="obf_inline.js"></script> -->
+</body>
+
+</html>

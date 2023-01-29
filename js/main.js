@@ -389,6 +389,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				this.setAttribute("disabled", true);
 			});
 		}
+
+	
 	});
 
 	let firstChapterTitleInput = document.querySelector(".chapter-title input");

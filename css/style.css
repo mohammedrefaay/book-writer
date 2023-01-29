@@ -558,7 +558,7 @@ a {
 .input_field {
     display: grid;
     grid-template-columns: auto 45px;
-    height: 30px;
+    /* height: 30px; */
     align-items: start;
 }
 .input_field input.content {
@@ -568,7 +568,7 @@ a {
     margin-left: 5px;
 }
 
-.input_field:hover .title * {
+.input_field:active .title * {
     color: #82ffb4;
     cursor: pointer;
 }
@@ -581,6 +581,11 @@ input.content:focus+span {
 .input_field:hover .icons i {
     display: inline-block;
     cursor: pointer;
+}
+
+.title.d-flex.flex-row-reverse {
+    height: 30px;
+    align-items: start;
 }
 
 .input_field:hover .icons i:hover {
@@ -874,7 +879,7 @@ input.content:focus+span {
     .accordion {
         display: block;
         overflow-y: scroll;
-        height: calc(100vh - 122px);
+        height: 80%;
     }
     .accordion .editor {
         height: calc(100vh - 238px);

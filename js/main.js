@@ -123,8 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				"beforeend",
 				`  
       <div class="accordion-item rounded-0" id="chapter-accordion-${chapterID}">
-	  <div class="box d-flex align-items-center w-100">
-          <h2 class="accordion-header align-items-center d-flex flex-row-reverse" id="heading-${chapterID}" >
+	  <div class="box d-flex align-items-center justify-content-between ">
+          <h2 class="accordion-header align-items-center d-flex flex-row-reverse w-100" id="heading-${chapterID}" >
               <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse"
                   data-bs-target="#collapse-${chapterID}" aria-expanded="true" aria-controls="collapse-${chapterID}"  placeholder="Add chapter title" />
               <span class="chapterNumber">${chapterTitleCount+1}.</span>
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
 					modules: {
 						toolbar: toolbarOptions,
 					},
-					placeholder:"It was a bright cold day in April, and the clocks were striking thirteen",
+					
 					theme: "snow",
 				}
 			);

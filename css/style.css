@@ -603,6 +603,27 @@ input.content:focus+span {
     color: #a2a2a2;
 }
 
+
+.hand.text-end.accordion-header {
+    padding-top: 23px;
+}
+
+/* .accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-active-icon);
+    transform: var(--bs-accordion-btn-icon-transform);
+}
+.accordion-button::after {
+    flex-shrink: 0;
+    width: var(--bs-accordion-btn-icon-width);
+    height: var(--bs-accordion-btn-icon-width);
+    margin-left: auto;
+    content: "";
+    background-image: var(--bs-accordion-btn-icon);
+    background-repeat: no-repeat;
+    background-size: var(--bs-accordion-btn-icon-width);
+    transition: var(--bs-accordion-btn-icon-transition);
+} */
+
 /* 
     2560 1920 1600 1280 1024 800x
     Start Responsive
@@ -877,12 +898,15 @@ input.content:focus+span {
     .content-section {
         width: 100%;
         max-width: 100%;
-        overflow: hidden;
+        overflow: scroll;
     }
     .accordion {
         display: block;
         overflow-y: scroll;
-        height: calc(100vh - 125px);
+        /* height: calc(100vh - 145px); */
+    }
+    .hand{
+        display: block;
     }
     .accordion .editor {
         height: calc(100vh - 238px);
@@ -932,7 +956,8 @@ input.content:focus+span {
         bottom: 0px;
         left: 0px;
         background-color: #464646;
-        display: block;
+        /* display: block; */
+        text-align: center;
     }
     .progressbar-back {
         margin: 0 auto;

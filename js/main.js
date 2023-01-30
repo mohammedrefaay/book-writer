@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			chapterAccordion.insertAdjacentHTML(
 				"beforeend",
 				`  
-      <div class="accordion-item rounded-0" id="chapter-accordion-${chapterID}">
+      <div class="accordion-item rounded-0" id="chapter-accordion-${chapterID}" onclick="accordionClick(event)">
 	  <div class="box d-flex align-items-center justify-content-between ">
           <h2 class="accordion-header align-items-center d-flex flex-row-reverse w-100" id="heading-${chapterID}" >
               <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse"
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <span class="chapterNumber">${chapterTitleCount+1}.</span>
           </h2>
 		  <div class="handl text-center accordion-header">
-                                <i class="fa fa-angle-down"></i>
+                                <i class="fa fa-angle-down a-down d-none" id="arrow-1"></i>
                             </div>
 		  </div>
           <div class="progressbar-back">
@@ -519,19 +519,107 @@ function calcChapters(arr, mobile = false) {
 }
 
 
-	const arrow = document.getElementById("arrow-1");
-  const accordion = document.getElementById("collapse-1");
-  arrow.style.display = "none";
-  document.getElementById("heading-1").addEventListener("click", function() {
-    arrow.style.display = "block";
-    if (accordion.classList.contains("show")) {
-      arrow.classList.remove("fa-angle-down");
-      arrow.classList.add("fa-arrow-up");
-    } else {
-      arrow.classList.remove("fa-arrow-up");
-      arrow.classList.add("fa-angle-down");
-    }
-  });
+
+
+
+
+
+
+function accordionClick (e) {
+		const arrow = e.currentTarget.querySelector(".a-down");
+		const accordionInput = e.currentTarget.querySelector(".accordion-button");
+		if (accordionInput.classList.contains("collapsed")) {
+			arrow.classList.add("fa-angle-down");
+			arrow.classList.remove("fa-angle-up");
+			arrow.classList.remove("d-none");
+		} else {
+			arrow.classList.remove("fa-angle-down");
+			arrow.classList.add("fa-angle-up");
+			arrow.classList.remove("d-none");
+		}
+};
+
+
+
+
+
+
+// const arrow = document.getElementById("arrow-1");
+// const accordion = document.querySelector(".accordion-item");
+// accordion.addEventListener("click", function() {
+// 	document.querySelectorAll(".accordion").forEach(function(e){
+// 		if (e.getElementsByTagName("input")[0].classList.contains("collapsed")){
+// 			document.querySelectorAll(".a-down").forEach(function(e){
+// 				arrow.classList.add("fa-angle-down");
+// 				arrow.classList.remove("fa-angle-up");
+// 			});
+// 		}else{
+// 			document.querySelectorAll(".a-down").forEach(function(e){
+// 				e.classList.remove("d-none");
+// 				arrow.classList.add("fa-angle-up");
+//     			arrow.classList.remove("fa-angle-down");
+// 			});
+// 		}
+// 	});
+// });
+
+// const accordions = document.querySelectorAll(".accordion-item");
+// if (accordions.length) {
+//   accordions.forEach(function(accordion) {
+//     const arrow = accordion.querySelectorAll(".a-down");
+//     if (arrow) {
+//       accordion.addEventListener("click", function() {
+//         if (accordion.querySelector("input").classList.contains("collapsed")) {
+//           arrow.classList.add("fa-angle-down");
+//           arrow.classList.remove("fa-angle-up");
+//         } else {
+//           arrow.classList.remove("d-none");
+//           arrow.classList.add("fa-angle-up");
+//           arrow.classList.remove("fa-angle-down");
+//         }
+//       });
+//     }
+//   });
+// }
+
+
+
+
+
+
+// const accordionContainer = document.querySelector(".accordion-container");
+// accordionContainer.addEventListener("click", function(event) {
+//   if (!event.target.matches(".accordion-item")) return;
+//   const accordion = event.target;
+//   const arrow = accordion.querySelector(".arrow");
+//   const input = accordion.querySelector("input");
+//   if (input.classList.contains("collapsed")) {
+//     document.querySelectorAll(".a-down").forEach(function(e) {
+//       e.classList.add("d-none");
+//       arrow.classList.add("fa-angle-down");
+//       arrow.classList.remove("fa-angle-up");
+//     });
+//   } else {
+//     document.querySelectorAll(".a-down").forEach(function(e) {
+//       e.classList.remove("d-none");
+//       arrow.classList.add("fa-angle-up");
+//       arrow.classList.remove("fa-angle-down");
+//     });
+//   }
+// });
+
+
+
+//   arrow.style.display = "block";
+
+//   if (accordion.classList.contains("show")) {
+//     arrow.classList.remove("fa-angle-down");
+//     arrow.classList.add("fa-arrow-up");
+//   } else {
+//     arrow.classList.remove("fa-arrow-up");
+//     arrow.classList.add("fa-angle-down");
+//   }
+
 
 
 

@@ -45,7 +45,7 @@
                 <div class="chapter-list">
                     <div class="chapter-title" id="chapter-title-1" data-chapter-num="1">
                         <div class="input_field">
-                            <div class="title d-flex flex-row-reverse">
+                            <div class="title d-flex align-items-center flex-row-reverse">
                                 <input class="content w-100" value="First Chapter" placeholder="Add chapter title"
                                     disabled />
                                 <span class="chapterNumber">1.</span>
@@ -61,35 +61,39 @@
                     </div>
                     <!-- JS -> add new chapter -->
                 </div>
-
+                <div class="hand text-end accordion-header">
+                    <i class="fa fa-angle-down"></i>
+                </div>
                 <div class="accordion" id="accordionContainer">
-
                     <div class="accordion-item rounded-0" id="chapter-accordion-1">
-
                         <div class="box d-flex align-items-center justify-content-between">
-                            <h2 class="accordion-header align-items-center d-flex flex-row-reverse w-100" id="heading-1">
-                                <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse"
-                                    data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1"
-                                    value="First Chapter" placeholder="Add chapter title" disabled />
-                                <span class="chapterNumber">1.</span>
-                            </h2>
-                            <div class="handl text-center accordion-header">
-                                <i class="fa fa-angle-down"></i>
-                            </div>
+                          <h2 class="accordion-header align-items-center d-flex flex-row-reverse w-100" id="heading-1">
+                            <input class="accordion-button content px-1 rounded-0" type="text" data-bs-toggle="collapse"
+                              data-bs-target="#collapse-1" aria-expanded="true" aria-controls="collapse-1"
+                              value="First Chapter" placeholder="Add chapter title" disabled />
+                            <span class="chapterNumber">1.</span>
+                          </h2>
+                          <div class="handl text-center accordion-header">
+                            <i class="fa fa-angle-down" id="arrow-1"></i>
+                          </div>
                         </div>
                         <div class="progressbar-back">
-                            <div class="progressbar-val"></div>
+                          <div class="progressbar-val"></div>
                         </div>
                         <div id="collapse-1" class="accordion-collapse px-2 rounded-0 collapse show"
-                            aria-labelledby="heading-1" data-bs-parent="#accordionContainer">
-                            <div class="accordion-body col-primary-dark">
-                                <div class="editor px-2"> </div>
-                            </div>
+                          aria-labelledby="heading-1" data-bs-parent="#accordionContainer">
+                          <div class="accordion-body col-primary-dark">
+                            <div class="editor px-2"> </div>
+                          </div>
                         </div>
-                    </div>
-
+                      </div>
+                      
                     <!-- JS -> add new Mobile chapter -->
                 </div>
+
+                
+
+                
 
                 <div class="chapter-fabbar w-100">
                     <i class="active fa fa-plus-circle"></i>

@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				`  
       <div class="chapter-title" id="chapter-title-${chapterID}" data-chapter-num="${chapterID}">
         <div class="input_field">
-            <div class="title d-flex flex-row-reverse">
+            <div class="title d-flex align-items-center flex-row-reverse">
               <input class="content w-100" placeholder="Add chapter title"/>
               <span class="chapterNumber">${chapterTitleCount+1}.</span>
             </div>
@@ -517,3 +517,32 @@ function calcChapters(arr, mobile = false) {
 		});
 	}
 }
+
+
+	const arrow = document.getElementById("arrow-1");
+  const accordion = document.getElementById("collapse-1");
+  arrow.style.display = "none";
+  document.getElementById("heading-1").addEventListener("click", function() {
+    arrow.style.display = "block";
+    if (accordion.classList.contains("show")) {
+      arrow.classList.remove("fa-angle-down");
+      arrow.classList.add("fa-arrow-up");
+    } else {
+      arrow.classList.remove("fa-arrow-up");
+      arrow.classList.add("fa-angle-down");
+    }
+  });
+
+
+
+//   const arrow = document.getElementById("arrow-1");
+// const accordion = document.getElementById("collapse-1");
+// arrow.style.display = "none";
+//     document.getElementById("heading-1").addEventListener("click", function() {
+// 	arrow.style.display = "block";
+// 	if (accordion.classList.contains("show")) {
+// 		arrow.style.transform = "rotate(0deg)";arrow.style.transform = "rotate(0deg)";
+// 	} else {
+// 		arrow.style.transform = "rotate(180deg)";
+//     }
+// });

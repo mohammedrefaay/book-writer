@@ -103,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// add new chapter.
 	addBtn.addEventListener("click", function () {
+		
 		let chapterTitleCount = document.querySelectorAll(".chapter-title").length;
 		if (mobileView) {
 			chapterTitleCount = document.querySelectorAll(".accordion-item").length;
@@ -288,16 +289,20 @@ document.addEventListener("DOMContentLoaded", function () {
 			chapterContainerElement.insertAdjacentHTML(
 				"beforeend",
 				`
-      <div class="chapter" id="chapter-preview-${chapterID}">
-          <div class="align-items-center chapter-page d-flex justify-content-center">
-              <h1 class="chapterH1">Add Chapter Title</h1>
-              <div class="chapter-pageNum text-center"></div>
-          </div>
-          <div class="chapterPreviewContainer"></div>
-      </div>
-      `
+				<div class="chapter" id="chapter-preview-${chapterID}">
+					<div class="align-items-center chapter-page d-flex justify-content-center">
+						<h1 class="chapterH1">Add Chapter Title</h1>
+						<div class="chapter-pageNum text-center"></div>
+					</div>
+					<div class="chapterPreviewContainer"></div>
+				  
+					<div class="chapterPreviewContainer">
+					
+				</div>
+				`
 			);
 		}
+		
 	});
 
 	// sidebar interactions
@@ -350,6 +355,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// chapter input change
 		if (e.target.matches(".chapter-title input")) {
+			let scrollToElement = document.getElementById('scrollToElement');
+		if(scrollToElement){
+					scrollToElement.removeAttribute('id');
+		}
 			let $this = e.target,
 				chapterNum = $this
 					.closest(".chapter-title")
@@ -407,32 +416,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ///////////////////////////////
 
-function getNodeChunks(htmlDocument, oldDOM) {
+function getNodeChunks(htmlDocument, oldDOM,y) {
 	let offscreenDiv = document.querySelector("#js_offscreenPreview .preview");
 	offscreenDiv.innerHTML = htmlDocument;
 	offscreenRect = offscreenDiv.getBoundingClientRect();
 	let chunks = [];
 	let currentChunk = [];
-
-        // check where to scroll 
+	// check where to scroll 
 		for (let i = 0; i < offscreenDiv.children.length; i++) {
 		if(oldDOM.length > 0){
             if(oldDOM[i]){
                 if(offscreenDiv.children[i].innerHTML != oldDOM[i].innerHTML){
                     offscreenDiv.children[i].id = "scrollToElement";
+					
+
+
                 }
             }
         }
 
 
 	}
+	
+	
 
+	let scrollToElement = document.getElementById('scrollToElement');
+	
 	for (let i = 0; i < offscreenDiv.children.length; i++) {
 
-    
+		
 		let current = offscreenDiv.children[i];
+			// console.log(document.getElementsByClassName(`preview preview_0`));
+		
+
 		let currentRect = current.getBoundingClientRect();
-		currentChunk.push(current);
+		currentChunk.push(current);		
+		// console.log(currentChunk);
 		if (currentRect.bottom > offscreenRect.bottom) {
 			// current element is overflowing offscreenDiv, remove it from current chunk
 			currentChunk.pop();
@@ -457,24 +476,34 @@ function getNodeChunks(htmlDocument, oldDOM) {
 }
 
 function appendChunksToPages(chunks, rootContainer, chapterTitle) {
-	let container = rootContainer,
-		i = 0;
-	chunks.forEach((chunk) => {
-		container.innerHTML += `
-      <div class="chapter-page">
-          <div class="chapter-header">${chapterTitle}</div>
-          <div class="preview preview_${i}"> </div>
-          <div class="chapter-pageNum text-center"> </div>
-      </div>
-      `;
-		let content = container.querySelector(".preview_" + i);
-		chunk.forEach((elem) => content.appendChild(elem));
-		i++;
-	});
+    let container = rootContainer,
+        i = 0;
+    chunks.forEach((chunk) => {
+            container.innerHTML += `
+            <div class="chapter-page">
+			<div class="chapter-header">${chapterTitle}</div>
+		
+			
+				
+                <div class="preview preview_${i}">
+
+				</div>
+				 
+
+                <div class="chapter-pageNum text-center"> </div>
+            </div>
+            `;
+		      
+        let content = container.querySelector(".preview_" + i);
+        chunk.forEach((elem) => content.appendChild(elem));
+        i++;
+    });
 
     let scrollToElement = document.getElementById('scrollToElement');
+	// console.log(scrollToElement);
     if(scrollToElement){
         scrollToElement.parentElement.parentElement.scrollIntoView({behavior:"smooth" , block : "center"});
+    // console.log(scrollToElement.parentElement)
     }else{
         container.scrollIntoView({block: "end"});
     }

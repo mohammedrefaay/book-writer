@@ -518,24 +518,54 @@ function calcChapters(arr, mobile = false) {
 	}
 }
 
+// Old  Version
+
+// function accordionClick(e) {
+// 	const accordionInput = e.currentTarget.querySelector(".accordion-button");
+// 	if (accordionInput.classList.contains("collapsed")) {
+// 	  e.currentTarget.querySelector(".a-down").classList.remove("d-none");
+// 	  e.currentTarget.querySelector(".a-down").classList.remove("fa-angle-up");
+// 	  e.currentTarget.querySelector(".a-down").classList.add("fa-angle-down");
+// 	} else {
+// 	  e.currentTarget.querySelector(".a-down").classList.remove("d-none");
+// 	  e.currentTarget.querySelector(".a-down").classList.remove("fa-angle-down");
+// 	  e.currentTarget.querySelector(".a-down").classList.add("fa-angle-up");
+// 	}
+//   }
+  
+
+// New  Version
+
 function accordionClick (e) {
 		
-		const arrow = document.querySelectorAll(".a-down");
-		const accordionInput = e.currentTarget.querySelector(".accordion-button");
-		if (accordionInput.classList.contains("collapsed")) {
-			arrow.forEach(function(e){
-				e.classList.add("fa-angle-down");
-				e.classList.remove("fa-angle-up");
-				e.classList.remove("d-none");
-			});
-		} else {
-			e.currentTarget.querySelector(".a-down").classList.add("fa-angle-up");
-			e.currentTarget.querySelector(".a-down").classList.remove("fa-angle-down");
-			// arrow.forEach(function(e){
-			// 	e.classList.remove("fa-angle-down");
-			// 	e.classList.add("fa-angle-up");
-			// 	e.classList.remove("d-none");
-			// });
+	const arrow = document.querySelectorAll(".a-down");
+	const accordionInput = e.currentTarget.querySelector(".accordion-button");
+	const accordions = document.querySelectorAll(".accordion-item");
+	let openAccordion = false;
+	
+	accordions.forEach(function(accordion) {
+		if (!accordion.querySelector(".accordion-button").classList.contains("collapsed")) {
+			openAccordion = true;
 		}
+	});
+	
+	if (openAccordion) {
+		arrow.forEach(function(e){
+			e.classList.remove("d-none");
+		});
+	} else {
+		arrow.forEach(function(e){
+			e.classList.add("d-none");
+		});
+	}
+	
+	if (accordionInput.classList.contains("collapsed")) {
+		e.currentTarget.querySelector(".a-down").classList.remove("fa-angle-up");
+		e.currentTarget.querySelector(".a-down").classList.add("fa-angle-down");
+	} else {
+		e.currentTarget.querySelector(".a-down").classList.remove("fa-angle-down");
+		e.currentTarget.querySelector(".a-down").classList.add("fa-angle-up");
+	}
 };
+
 

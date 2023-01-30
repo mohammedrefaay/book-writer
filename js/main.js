@@ -58,7 +58,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		chapterEditor1.on("text-change", function () {
 			let textLen = chapterEditor1.getLength(),
-				editorFullContent = document.querySelector(
+			
+				editorFullContent1 = document.querySelector(
 					"#chapter-editor-1 .ql-editor"
 				).innerHTML,
 				previewContainer = document.querySelector(
@@ -66,7 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
 				),
 				chapterTitle = document.querySelector("#chapter-title-1 input").value,
                 oldDOM = [];
-                
+
+				//karim
+				let x = `<p id="cht">${chapterTitle}</p> </br></br></br></br></br></br>`
+				editorFullContent = x+editorFullContent1;
+				// console.log(x+editorFullContent1);
             previewContainer.querySelectorAll(".preview").forEach(e => {
                 let childrenLen = e.children.length, 
                     i = 0; 
@@ -243,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				"text-change",
 				function (delta, oldDelta, source) {
 					let textLen = window["chapterEditor" + chapterID].getLength(),
-						editorFullContent = document.querySelector(
+						editorFullContent1 = document.querySelector(
 							"#chapter-editor-" + chapterID + " .ql-editor"
 						).innerHTML,
 						previewContainer = document.querySelector(
@@ -255,7 +260,9 @@ document.addEventListener("DOMContentLoaded", function () {
 							"#chapter-title-" + chapterID + " input"
 						).value,
                         oldDOM = [];
-                
+						//karim
+						let x = `<p id="cht">${chapterTitle}</p> </br></br></br></br></br></br>`
+						editorFullContent = x+editorFullContent1;
                     previewContainer.querySelectorAll(".preview").forEach(e => {
                         let childrenLen = e.children.length, 
                             i = 0; 
@@ -355,6 +362,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		// chapter input change
 		if (e.target.matches(".chapter-title input")) {
+			//karim
 			let scrollToElement = document.getElementById('scrollToElement');
 		if(scrollToElement){
 					scrollToElement.removeAttribute('id');
@@ -416,13 +424,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 ///////////////////////////////
 
-function getNodeChunks(htmlDocument, oldDOM,y) {
+
+
+function getNodeChunks(htmlDocument, oldDOM) {
 	let offscreenDiv = document.querySelector("#js_offscreenPreview .preview");
 	offscreenDiv.innerHTML = htmlDocument;
 	offscreenRect = offscreenDiv.getBoundingClientRect();
 	let chunks = [];
 	let currentChunk = [];
-	// check where to scroll 
+	
+	// check where to scroll karim
 		for (let i = 0; i < offscreenDiv.children.length; i++) {
 		if(oldDOM.length > 0){
             if(oldDOM[i]){
@@ -437,16 +448,14 @@ function getNodeChunks(htmlDocument, oldDOM,y) {
 
 
 	}
-	
-	
 
-	let scrollToElement = document.getElementById('scrollToElement');
-	
+
 	for (let i = 0; i < offscreenDiv.children.length; i++) {
 
 		
 		let current = offscreenDiv.children[i];
-			// console.log(document.getElementsByClassName(`preview preview_0`));
+			
+				
 		
 
 		let currentRect = current.getBoundingClientRect();
@@ -478,27 +487,32 @@ function getNodeChunks(htmlDocument, oldDOM,y) {
 function appendChunksToPages(chunks, rootContainer, chapterTitle) {
     let container = rootContainer,
         i = 0;
-    chunks.forEach((chunk) => {
-            container.innerHTML += `
-            <div class="chapter-page">
-			<div class="chapter-header">${chapterTitle}</div>
+    chunks.forEach((chunk) => { 
 		
-			
-				
+		
+
+
+		container.innerHTML += `
+            <div class="chapter-page">
+		
                 <div class="preview preview_${i}">
 
 				</div>
-				 
-
+		
                 <div class="chapter-pageNum text-center"> </div>
             </div>
             `;
+	
+            
 		      
         let content = container.querySelector(".preview_" + i);
+		// console.log(chunk);
         chunk.forEach((elem) => content.appendChild(elem));
         i++;
-    });
 
+		
+    });
+   //karim
     let scrollToElement = document.getElementById('scrollToElement');
 	// console.log(scrollToElement);
     if(scrollToElement){
@@ -532,3 +546,5 @@ function calcChapters(arr, mobile = false) {
 		});
 	}
 }
+
+

@@ -518,119 +518,24 @@ function calcChapters(arr, mobile = false) {
 	}
 }
 
-
-
-
-
-
-
-
 function accordionClick (e) {
-		const arrow = e.currentTarget.querySelector(".a-down");
+		
+		const arrow = document.querySelectorAll(".a-down");
 		const accordionInput = e.currentTarget.querySelector(".accordion-button");
 		if (accordionInput.classList.contains("collapsed")) {
-			arrow.classList.add("fa-angle-down");
-			arrow.classList.remove("fa-angle-up");
-			arrow.classList.remove("d-none");
+			arrow.forEach(function(e){
+				e.classList.add("fa-angle-down");
+				e.classList.remove("fa-angle-up");
+				e.classList.remove("d-none");
+			});
 		} else {
-			arrow.classList.remove("fa-angle-down");
-			arrow.classList.add("fa-angle-up");
-			arrow.classList.remove("d-none");
+			e.currentTarget.querySelector(".a-down").classList.add("fa-angle-up");
+			e.currentTarget.querySelector(".a-down").classList.remove("fa-angle-down");
+			// arrow.forEach(function(e){
+			// 	e.classList.remove("fa-angle-down");
+			// 	e.classList.add("fa-angle-up");
+			// 	e.classList.remove("d-none");
+			// });
 		}
 };
 
-
-
-
-
-
-// const arrow = document.getElementById("arrow-1");
-// const accordion = document.querySelector(".accordion-item");
-// accordion.addEventListener("click", function() {
-// 	document.querySelectorAll(".accordion").forEach(function(e){
-// 		if (e.getElementsByTagName("input")[0].classList.contains("collapsed")){
-// 			document.querySelectorAll(".a-down").forEach(function(e){
-// 				arrow.classList.add("fa-angle-down");
-// 				arrow.classList.remove("fa-angle-up");
-// 			});
-// 		}else{
-// 			document.querySelectorAll(".a-down").forEach(function(e){
-// 				e.classList.remove("d-none");
-// 				arrow.classList.add("fa-angle-up");
-//     			arrow.classList.remove("fa-angle-down");
-// 			});
-// 		}
-// 	});
-// });
-
-// const accordions = document.querySelectorAll(".accordion-item");
-// if (accordions.length) {
-//   accordions.forEach(function(accordion) {
-//     const arrow = accordion.querySelectorAll(".a-down");
-//     if (arrow) {
-//       accordion.addEventListener("click", function() {
-//         if (accordion.querySelector("input").classList.contains("collapsed")) {
-//           arrow.classList.add("fa-angle-down");
-//           arrow.classList.remove("fa-angle-up");
-//         } else {
-//           arrow.classList.remove("d-none");
-//           arrow.classList.add("fa-angle-up");
-//           arrow.classList.remove("fa-angle-down");
-//         }
-//       });
-//     }
-//   });
-// }
-
-
-
-
-
-
-// const accordionContainer = document.querySelector(".accordion-container");
-// accordionContainer.addEventListener("click", function(event) {
-//   if (!event.target.matches(".accordion-item")) return;
-//   const accordion = event.target;
-//   const arrow = accordion.querySelector(".arrow");
-//   const input = accordion.querySelector("input");
-//   if (input.classList.contains("collapsed")) {
-//     document.querySelectorAll(".a-down").forEach(function(e) {
-//       e.classList.add("d-none");
-//       arrow.classList.add("fa-angle-down");
-//       arrow.classList.remove("fa-angle-up");
-//     });
-//   } else {
-//     document.querySelectorAll(".a-down").forEach(function(e) {
-//       e.classList.remove("d-none");
-//       arrow.classList.add("fa-angle-up");
-//       arrow.classList.remove("fa-angle-down");
-//     });
-//   }
-// });
-
-
-
-//   arrow.style.display = "block";
-
-//   if (accordion.classList.contains("show")) {
-//     arrow.classList.remove("fa-angle-down");
-//     arrow.classList.add("fa-arrow-up");
-//   } else {
-//     arrow.classList.remove("fa-arrow-up");
-//     arrow.classList.add("fa-angle-down");
-//   }
-
-
-
-
-//   const arrow = document.getElementById("arrow-1");
-// const accordion = document.getElementById("collapse-1");
-// arrow.style.display = "none";
-//     document.getElementById("heading-1").addEventListener("click", function() {
-// 	arrow.style.display = "block";
-// 	if (accordion.classList.contains("show")) {
-// 		arrow.style.transform = "rotate(0deg)";arrow.style.transform = "rotate(0deg)";
-// 	} else {
-// 		arrow.style.transform = "rotate(180deg)";
-//     }
-// });

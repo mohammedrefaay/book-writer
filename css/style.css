@@ -286,6 +286,7 @@ a {
 
 .chapter .preview {
     overflow-y: hidden;
+    text-align: start;
 }
 
 .editor-section .title h1 {
@@ -559,7 +560,7 @@ a {
     display: grid;
     grid-template-columns: auto 45px;
     /* height: 30px; */
-    align-items: start;
+    align-items: center;
 }
 
 .input_field input.content:active{

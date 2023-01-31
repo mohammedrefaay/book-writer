@@ -965,4 +965,5 @@ input.content:focus+span {
 #cht{
     font-size: xxx-large;
     text-align: center;
+    padding-top: 30px;
 }

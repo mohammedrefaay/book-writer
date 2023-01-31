@@ -542,7 +542,6 @@ function accordionClick (e) {
 	const accordionInput = e.currentTarget.querySelector(".accordion-button");
 	const accordions = document.querySelectorAll(".accordion-item");
 	let openAccordion = false;
-	
 	accordions.forEach(function(accordion) {
 		if (!accordion.querySelector(".accordion-button").classList.contains("collapsed")) {
 			openAccordion = true;

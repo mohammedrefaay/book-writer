@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 oldDOM = [];
 
 				//karim
-				let x = `<p id="cht">${chapterTitle}</p> </br></br></br></br></br></br>`
+				let x = `<h2 id="cht">${chapterTitle}</h2> </br></br></br></br></br></br>`
 				editorFullContent = x+editorFullContent1;
 				// console.log(x+editorFullContent1);
             previewContainer.querySelectorAll(".preview").forEach(e => {
@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
 						).value,
                         oldDOM = [];
 						//karim
-						let x = `<p id="cht">${chapterTitle}</p> </br></br></br></br></br></br>`
+						let x = `<h2 id="cht">${chapterTitle}</h2> </br></br></br></br></br></br>`
 						editorFullContent = x+editorFullContent1;
                     previewContainer.querySelectorAll(".preview").forEach(e => {
                         let childrenLen = e.children.length, 
